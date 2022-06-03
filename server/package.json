@@ -1,0 +1,29 @@
+{
+	"name": "cors-server",
+	"version": "1.0.0",
+	"description": "CORS server",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/HarshKapadia2/cors.git"
+	},
+	"keywords": [
+		"CORS"
+	],
+	"author": "Harsh Kapadia <harshgkapadia@gmail.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/HarshKapadia2/cors/issues"
+	},
+	"homepage": "https://github.com/HarshKapadia2/cors#readme",
+	"dependencies": {
+		"express": "^4.18.1"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.16"
+	}
+}
