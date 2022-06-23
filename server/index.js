@@ -45,7 +45,10 @@ app.post("/credentials", (request, response) =>
 		JSON.stringify({
 			message: "Success",
 			receivedBodyData: request.body.data,
-			receivedAuthorizationHeaderValue: request.headers.authorization
+			receivedAuthorizationHeaderValue: request.headers.authorization,
+			receivedCookies: request.headers.cookie
+				? request.headers.cookie
+				: ""
 		})
 	)
 );

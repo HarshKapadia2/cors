@@ -42,6 +42,10 @@
 			rel="noreferrer"
 			>GitHub</a
 		>
+		<br /><br />
+
+		<div>NOTE: Please keep the browser DevTools open.</div>
+		<hr />
 
 		<h2>Non-Credentialed Requests</h2>
 
@@ -54,15 +58,38 @@
 
 		<h3>Result:</h3>
 		<div class="result" id="nc-result"></div>
+		<hr />
 
 		<h2>Credentialed Requests</h2>
+		<h3>Both with <code>{ credentials: "include" }</code></h3>
 
-		<button id="c-w-cors-usual">Usual CORS request</button>
-		<button id="c-w-cors">
-			Request with <code>{ credentials: "include" }</code>
+		<button id="c-w-cors-usual">
+			CORS request with wildcard (<code>*</code>) CORS response header
+			values
+		</button>
+		<button class="c-w-cors-w-option">
+			CORS request with specific CORS response header values
 		</button>
 
 		<h3>Result:</h3>
-		<div class="result" id="c-result"></div>
+		<div class="result c-result"></div>
+		<hr />
+
+		<h2>Cookies</h2>
+
+		<button id="set-cookie">Set <code>corsDemo</code> Cookie</button>
+		<button id="remove-cookie">Remove <code>corsDemo</code> Cookie</button>
+		<div class="result" id="cookie-result"></div>
+
+		<button id="c-w-cors-wo-option">
+			CORS Request without <code>{ credentials: "include" }</code>
+		</button>
+		<button class="c-w-cors-w-option">
+			CORS Request with <code>{ credentials: "include" }</code>
+		</button>
+
+		<h3>Result:</h3>
+		<div class="result c-result"></div>
+		<hr />
 	</body>
 </html>
