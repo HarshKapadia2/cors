@@ -1,0 +1,16 @@
+body {
+	font-family: sans-serif;
+}
+
+button {
+	margin: 0.5em 0.25em;
+}
+
+.result {
+	min-height: 3em;
+}
+
+img {
+	width: 30vw;
+	margin-bottom: 1em;
+}

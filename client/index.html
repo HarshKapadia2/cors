@@ -5,23 +5,44 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<script defer src="script.js"></script>
+		<script defer src="static/js/script.js"></script>
 
-		<style>
-			body {
-				font-family: sans-serif;
-			}
-
-			.result {
-				min-height: 3em;
-			}
-		</style>
+		<link rel="stylesheet" href="static/css/style.css" />
 
 		<title>CORS</title>
 	</head>
 
 	<body>
 		<h1>CORS</h1>
+
+		<a
+			href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"
+			target="_blank"
+			rel="noreferrer"
+			>CORS</a
+		>
+		|
+		<a
+			href="https://talks.harshkapadia.me/cors"
+			target="_blank"
+			rel="noreferrer"
+			>Talk</a
+		>
+		|
+		<a
+			href="https://dev.harshkapadia.me/resources#cors"
+			target="_blank"
+			rel="noreferrer"
+			>Resources</a
+		>
+		|
+		<a
+			href="https://github.com/HarshKapadia2/cors"
+			target="_blank"
+			rel="noreferrer"
+			>GitHub</a
+		>
+
 		<h2>Non-Credentialed Requests</h2>
 
 		<button id="nc-wo-cors">Request without CORS</button>
@@ -29,6 +50,7 @@
 		<button id="nc-wo-cors-sr">
 			Simple Request (CORS without preflight)
 		</button>
+		<button id="nc-w-cors-proxy">Request through CORS Proxy</button>
 
 		<h3>Result:</h3>
 		<div class="result" id="nc-result"></div>
@@ -36,7 +58,9 @@
 		<h2>Credentialed Requests</h2>
 
 		<button id="c-w-cors-usual">Usual CORS request</button>
-		<button id="c-w-cors">Request with CORS</button>
+		<button id="c-w-cors">
+			Request with <code>{ credentials: "include" }</code>
+		</button>
 
 		<h3>Result:</h3>
 		<div class="result" id="c-result"></div>

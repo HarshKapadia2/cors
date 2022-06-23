@@ -1,6 +1,7 @@
 const ncWoCorsBtn = document.querySelector("#nc-wo-cors");
 const ncWCorsBtn = document.querySelector("#nc-w-cors");
 const ncWoCorsSRBtn = document.querySelector("#nc-wo-cors-sr");
+const ncWCorsProxyBtn = document.querySelector("#nc-w-cors-proxy");
 const cWCorsUsualBtn = document.querySelector("#c-w-cors-usual");
 const cWCorsBtn = document.querySelector("#c-w-cors");
 
@@ -11,16 +12,13 @@ const cResult = document.querySelector("#c-result");
 ncWoCorsBtn.addEventListener("click", () => {
 	fetch("http://localhost:5000/noCredentialsFail", {
 		method: "POST",
-		mode: "cors", // Default value
 		headers: {
 			"Content-Type": "application/json",
 			"Accept": "application/json"
 		},
 		body: JSON.stringify({ data: "json-data-in-request-body" })
 	})
-		.then((res) => {
-			return res.json();
-		})
+		.then((res) => res.json())
 		.then((data) => {
 			ncResult.innerText = JSON.stringify(data);
 			ncResult.style.color = "green";
@@ -43,9 +41,7 @@ ncWCorsBtn.addEventListener("click", () => {
 		},
 		body: JSON.stringify({ data: "json-data-in-request-body" })
 	})
-		.then((res) => {
-			return res.json();
-		})
+		.then((res) => res.json())
 		.then((data) => {
 			ncResult.innerText = JSON.stringify(data);
 			ncResult.style.color = "green";
@@ -68,9 +64,33 @@ ncWoCorsSRBtn.addEventListener("click", () => {
 		},
 		body: "plain-text-data-in-request-body"
 	})
-		.then((res) => {
-			return res.json();
+		.then((res) => res.json())
+		.then((data) => {
+			ncResult.innerText = JSON.stringify(data);
+			ncResult.style.color = "green";
 		})
+		.catch((err) => {
+			ncResult.innerText = "Check browser console for error(s).";
+			ncResult.style.color = "red";
+			console.error("Fetch error: ", err);
+		});
+});
+
+// Non-credentialed request through CORS proxy
+ncWCorsProxyBtn.addEventListener("click", () => {
+	const requestUrl = encodeURIComponent(
+		"http://localhost:5000/noCredentials"
+	);
+
+	fetch(`http://localhost:8000/makeRequestTo?url=${requestUrl}`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			"Accept": "application/json"
+		},
+		body: JSON.stringify({ data: "json-data-in-request-body" })
+	})
+		.then((res) => res.json())
 		.then((data) => {
 			ncResult.innerText = JSON.stringify(data);
 			ncResult.style.color = "green";
@@ -95,9 +115,7 @@ cWCorsUsualBtn.addEventListener("click", () => {
 		},
 		body: JSON.stringify({ data: "json-data-in-request-body" })
 	})
-		.then((res) => {
-			return res.json();
-		})
+		.then((res) => res.json())
 		.then((data) => {
 			cResult.innerText = JSON.stringify(data);
 			cResult.style.color = "green";
@@ -122,9 +140,7 @@ cWCorsBtn.addEventListener("click", () => {
 		},
 		body: JSON.stringify({ data: "json-data-in-request-body" })
 	})
-		.then((res) => {
-			return res.json();
-		})
+		.then((res) => res.json())
 		.then((data) => {
 			cResult.innerText = JSON.stringify(data);
 			cResult.style.color = "green";

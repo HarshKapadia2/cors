@@ -7,7 +7,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/noCredentialsPlaintext", express.text());
 app.use("*", express.json());
 
-// CORS preflight response middleware
+// CORS response middleware
 app.use(
 	["/noCredentials", "/noCredentialsPlaintext"],
 	setNoCredentialsCorsHeaders
@@ -50,13 +50,13 @@ app.post("/credentials", (request, response) =>
 	)
 );
 
-// CORS preflight responses
+// CORS preflight routes
 app.options("/noCredentials", (request, response) => {
 	response.setHeader("Access-Control-Allow-Origin", "*");
 	response.setHeader("Access-Control-Allow-Methods", "*");
 	response.setHeader("Access-Control-Allow-Headers", "*");
 	// response.setHeader("Access-Control-Allow-Headers", "Content-Type");
-	// response.setHeader("Access-Control-Max-Age", 60) // 60 seconds
+	// response.setHeader("Access-Control-Max-Age", 60) // Cache the preflight response for 60 seconds
 	response.send();
 });
 
