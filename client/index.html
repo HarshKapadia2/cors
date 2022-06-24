@@ -7,6 +7,17 @@
 
 		<script defer src="static/js/script.js"></script>
 
+		<!-- <link rel="preconnect" href="http://localhost:5000" />
+		<link
+			rel="preconnect"
+			href="http://localhost:5000"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="http://localhost:5000/static/css/fonts.css"
+		/> -->
+
 		<link rel="stylesheet" href="static/css/style.css" />
 
 		<title>CORS</title>
@@ -90,6 +101,29 @@
 
 		<h3>Result:</h3>
 		<div class="result c-result"></div>
+		<hr />
+
+		<h2>Images</h2>
+		<h3><code>&lt;img /&gt;</code> without canvas only</h3>
+
+		<div>Wikipedia</div>
+		<img
+			src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Selena_Gomez_TODAY_Show_Live_2015_%2850144934103%29.jpg"
+			alt="Selena Gomez picture hosted on Wikipedia"
+		/>
+
+		<div>Localhost:5000</div>
+		<img
+			src="http://localhost:5000/static/img/selena-gomez.jpg"
+			alt="Selena Gomez image hosted on Localhost:5000"
+		/>
+		<hr />
+
+		<h2>Fonts</h2>
+		<div id="anaktoria-font-text">
+			This text is supposed to be in the decorative and elegant font
+			Anaktoria.
+		</div>
 		<hr />
 	</body>
 </html>

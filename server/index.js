@@ -12,7 +12,10 @@ app.use(
 	["/noCredentials", "/noCredentialsPlaintext"],
 	setNoCredentialsCorsHeaders
 );
-app.use("/credentials", setCredentialedCorsHeaders);
+app.use(["/credentials", "/static"], setCredentialedCorsHeaders);
+
+// Static files
+app.use("/static", express.static(__dirname + "/static"));
 
 // Home route
 app.get("/", (request, response) =>
@@ -83,6 +86,7 @@ function setNoCredentialsCorsHeaders(request, response, next) {
 
 function setCredentialedCorsHeaders(request, response, next) {
 	response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+	// response.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
 	response.setHeader("Access-Control-Allow-Credentials", "true");
 	next();
 }
